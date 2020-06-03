@@ -7,15 +7,12 @@ logger = tf.get_logger()
 logger.setLevel(logging.ERROR)
 
 # #define data
-# years   = np.array([1,2,3,4,5,6,7,8,9,10],  dtype=int)
-# salary = np.array([2,4,6,8,10,12,14,16,18,20],  dtype=int)
+#multiple 2
+a   = np.array([1,2,3,4,5],  dtype=int)
+b = np.array([274,275,276,277,278],  dtype=int)
 
-#try celcius to kelvin
-years   = np.array([1,2,3,4,5],  dtype=int)
-salary = np.array([274,275,276,277,278],  dtype=int)
-
-for i,c in enumerate(years):
-    print("{} Years Experience = {} Salary".format(years[i],salary[i]))
+for i,c in enumerate(a):
+    print("{} * 2 = {}".format(a[i],b[i]))
 
 
 l0 = tf.keras.layers.Dense(units=1, input_shape=[1])
@@ -29,7 +26,7 @@ model = tf.keras.Sequential([l0])
 model.compile(loss='mean_squared_error',optimizer=tf.keras.optimizers.Adam(2))
 
 #train
-history = model.fit(years,salary,epochs=1000,verbose=False)
+history = model.fit(a,b,epochs=1000,verbose=False)
 print("Finished Training the model")
 
 import matplotlib.pyplot as plt
